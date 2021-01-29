@@ -32,7 +32,10 @@ while(True):
                     if(currentField[0][0]=='X' and currentField[1][1]=='X' and currentField[2][2]=='X'):
                         gameEnd=True
                         won=1
-                if(currentField[MoveColumn][0]=='X' and currentField[MoveColumn][1]=='X' and currentField[MoveColumn][2]=='X'):
+                if((currentField[MoveColumn-1][0]=='X' and currentField[MoveColumn-1][1]=='X' and currentField[MoveColumn-1][2]=='X')or(currentField[0][MoveRow-1]=='X' and currentField[1][MoveRow-1]=='X' and currentField[2][MoveRow-1]=='X')):
+                    gameEnd=True
+                    won=1
+                if(currentField[2][0]=='X' and currentField[1][1]=='X' and currentField[0][2]=='X'):
                     gameEnd=True
                     won=1
                 player = 2
@@ -43,9 +46,12 @@ while(True):
                     if(currentField[0][0]=='O' and currentField[1][1]=='O' and currentField[2][2]=='O'):
                         gameEnd=True
                         won=2
-                if(currentField[MoveColumn][0]=='O' and currentField[MoveColumn][1]=='O' and currentField[MoveColumn][2]=='O'):               
+                if((currentField[MoveColumn-1][0]=='O' and currentField[MoveColumn-1][1]=='O' and currentField[MoveColumn-1][2]=='O')or(currentField[0][MoveRow-1]=='O' and currentField[1][MoveRow-1]=='O' and currentField[2][MoveRow-1]=='O')):               
                     gameEnd=True
                     won=2
+                if(currentField[2][0]=='X' and currentField[1][1]=='X' and currentField[0][2]=='X'):
+                    gameEnd=True
+                    won=1
                 player = 1
         print('\n')
         drawField(currentField)
